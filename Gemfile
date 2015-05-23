@@ -28,6 +28,8 @@ group :test, :development do
   gem "selenium-webdriver"
   gem 'teaspoon'
   gem 'phantomjs'
+  gem 'seed-fu', '~> 2.3'
+  gem 'faker'
 end
 
 group :doc do

@@ -4,4 +4,5 @@ asset 'angular-resource'
 asset 'angular-mocks'
 asset 'bootstrap-sass-official'
 asset 'angular-flash'
+asset 'ng-admin'
 # vim: ft=ruby

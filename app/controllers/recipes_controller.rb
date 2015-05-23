@@ -1,12 +1,15 @@
 class RecipesController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  respond_to :json
 
   def index
     @recipes = if params[:keywords]
                  Recipe.where('name ilike ?',"%#{params[:keywords]}%")
                else
-                 []
+                 Recipe.all
                end
+    render json: @recipes
+
   end
 
   def show
