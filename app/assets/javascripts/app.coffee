@@ -39,8 +39,8 @@ receta.config([ '$routeProvider', 'flashProvider','NgAdminConfigurationProvider'
       if value.length > 50 then value.substr(0, 50) + '...' else value
       
     # set the main API endpoint for this admin
-    endpoint = 'http://localhost:3001/'
-    # endpoint = 'https://boiling-headland-1726.herokuapp.com/'
+    # endpoint = 'http://localhost:3001/'
+    endpoint = 'https://boiling-headland-1726.herokuapp.com/'
 
     app = nga.application('Admin').baseApiUrl(endpoint)
 
