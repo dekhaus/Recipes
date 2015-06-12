@@ -23,5 +23,15 @@ module Receta
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
 
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2)$)
+    
+    # http://stackoverflow.com/questions/25045681/xmlhttprequest-no-access-control-allow-origin-header-is-present-on-the-request
+    
+    # config.middleware.use Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', :headers => :any, :methods => [:get, :post, :options]
+    #   end
+    # end
+    
   end
 end

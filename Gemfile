@@ -11,6 +11,7 @@ gem 'jbuilder'
 
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem 'will_paginate', '~> 3.0.6'
 
 gem "foreman"
 group :production, :staging do
@@ -36,3 +37,4 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+ruby '2.1.4'

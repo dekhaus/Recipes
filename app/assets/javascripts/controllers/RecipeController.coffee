@@ -1,6 +1,6 @@
 controllers = angular.module('controllers')
 controllers.controller("RecipeController", [ '$scope', '$routeParams', '$resource', '$location', 'flash',
-  ($scope,$routeParams,$resource,$location, flash)->
+  ($scope,$routeParams,$resource,$location, flash) ->
     Recipe = $resource('/recipes/:recipeId', { recipeId: "@id", format: 'json' },
       {
         'save':   {method:'PUT'},

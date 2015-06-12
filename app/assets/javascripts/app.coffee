@@ -39,20 +39,55 @@ receta.config([ '$routeProvider', 'flashProvider','NgAdminConfigurationProvider'
       if value.length > 50 then value.substr(0, 50) + '...' else value
       
     # set the main API endpoint for this admin
-    app = nga.application('My backend').baseApiUrl('http://localhost:3001/')
-    # define an entity mapped by the http://localhost:3000/posts endpoint
+    app = nga.application('Admin').baseApiUrl(Rails.env.development? ? 'http://localhost:3001/' : 'https://boiling-headland-1726.herokuapp.com/')
+
+
     recipe = nga.entity('recipes')
-    app.addEntity recipe
+    
+    place = nga.entity('places')
+               .baseApiUrl('https://rocky-cove-3528.herokuapp.com/')
+               .identifier(nga.field('id'))
+
+    
+    app.addEntity(recipe)
+       .addEntity(place)
+    
+    place.dashboardView()
+          .title('Recent Places')
+          .order(1)
+          .perPage(5)
+          .fields([nga.field('address').isDetailLink(true).map(truncate)])
+
+    place.listView()
+         .title('All Places')
+         .description('List of Places')
+         .perPage(5)
+	       .fields([
+	         nga.field('id'),
+	         nga.field('latitude'),
+	         nga.field('longitude'),
+	         nga.field('address'),
+	         nga.field('country'),
+	         nga.field('zip')
+	       ])
+	       .listActions([ ])
+    
+    
     # set the list of fields to map in each post view
     
     recipe.dashboardView().title('Recent Recipes').order(1).perPage(5).fields [ nga.field('name').isDetailLink(true).map(truncate) ]
     
-    recipe.listView().title('All Recipes').description('List of Recipes with infinite pagination').infinitePagination(true).fields([
-      nga.field('id').label('ID')
-      nga.field('name')
-      nga.field('instructions')
-    ])
-    .listActions [ ]
+    recipe.listView()
+      .title('All Recipes')
+      .description('List of Recipes')
+      .perPage(10)
+      .fields([
+        nga.field('id').label('ID')
+        nga.field('name')
+        nga.field('instructions')
+      ])
+      .listActions [ ]
+      
     # .listActions [
     #   'show'
     #   'edit'

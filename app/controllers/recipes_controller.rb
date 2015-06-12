@@ -6,14 +6,21 @@ class RecipesController < ApplicationController
     @recipes = if params[:keywords]
                  Recipe.where('name ilike ?',"%#{params[:keywords]}%")
                else
-                 Recipe.all
+                 if params[:_page]
+                   page    = params[:_page].to_i
+                   perPage = (params[:_perPage] || 25).to_i
+                   Recipe.all.page(page).per_page(perPage)
+                 else
+                   Recipe.all
+                 end
                end
+    response.headers['X-Total-Count'] = @recipes.count.to_s
     render json: @recipes
-
   end
 
   def show
     @recipe = Recipe.find(params[:id])
+    render json: @recipe
   end
 
   def create
