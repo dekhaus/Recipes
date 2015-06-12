@@ -12,6 +12,8 @@ gem 'jbuilder'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'will_paginate', '~> 3.0.6'
+gem 'seed-fu', '~> 2.3'
+gem 'faker'
 
 gem "foreman"
 group :production, :staging do
@@ -29,8 +31,6 @@ group :test, :development do
   gem "selenium-webdriver"
   gem 'teaspoon'
   gem 'phantomjs'
-  gem 'seed-fu', '~> 2.3'
-  gem 'faker'
 end
 
 group :doc do
