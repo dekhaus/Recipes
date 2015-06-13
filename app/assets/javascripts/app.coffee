@@ -48,7 +48,7 @@ receta.config([ '$routeProvider', 'flashProvider','NgAdminConfigurationProvider'
     recipe = nga.entity('recipes')
     
     place = nga.entity('places')
-               .baseApiUrl('https://rocky-cove-3528.herokuapp.com/')
+               .baseApiUrl('https://daves-places.herokuapp.com/')
                # .baseApiUrl('http://localhost:3300/')
                .identifier(nga.field('id'))
 
