@@ -40,7 +40,7 @@ receta.config([ '$routeProvider', 'flashProvider','NgAdminConfigurationProvider'
       
     # set the main API endpoint for this admin
     # endpoint = 'http://localhost:3001/'
-    endpoint = 'https://boiling-headland-1726.herokuapp.com/'
+    endpoint = 'https://daves-recipes.herokuapp.com/'
 
     app = nga.application('Admin').baseApiUrl(endpoint)
 
