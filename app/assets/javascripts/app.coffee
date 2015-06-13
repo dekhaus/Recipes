@@ -49,6 +49,7 @@ receta.config([ '$routeProvider', 'flashProvider','NgAdminConfigurationProvider'
     
     place = nga.entity('places')
                .baseApiUrl('https://rocky-cove-3528.herokuapp.com/')
+               # .baseApiUrl('http://localhost:3300/')
                .identifier(nga.field('id'))
 
     
